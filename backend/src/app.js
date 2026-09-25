@@ -1,10 +1,23 @@
-import express from 'express'
-import AuthRoutes from "./routers/auth.router.js"
-import cookieparser from 'cookie-parser'
-const app =express()
+import express from "express";
+import AuthRoutes from "./routers/auth.router.js";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import cors from "cors";
 
-app.use(express.json())
-app.use(cookieparser())
-app.use("/api/auth",AuthRoutes)
+const app = express();
 
-export default app
+app.use(express.json());
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+}));
+
+app.use(cookieParser());
+
+app.use(morgan("dev"));
+
+app.use("/api/auth", AuthRoutes);
+
+export default app;
