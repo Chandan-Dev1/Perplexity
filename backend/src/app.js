@@ -20,6 +20,6 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 
 app.use("/api/auth", AuthRoutes);
-app.use("/api/chat/",ChatRoutes)
+app.use("/api/chats/",ChatRoutes)
 
 export default app;

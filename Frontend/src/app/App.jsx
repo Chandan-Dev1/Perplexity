@@ -4,13 +4,15 @@ import { router } from "./Approutes.jsx";
 import { useAuth } from "../features/auth/hook/useAuth.js";
 
 const App = () => {
-  const auth = useAuth()
+    const auth = useAuth()
 
-useEffect(()=>{
-  auth.handleGetMe()
-},[])
+  useEffect(() => {
+    auth.handleGetMe()
+  }, [])
 
-  return <RouterProvider router={router} />;
-};
+  return (
+    <RouterProvider router={router} />
+  )
+}
 
 export default App;

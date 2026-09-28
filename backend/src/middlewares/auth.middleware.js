@@ -4,6 +4,9 @@ export function authUser(req, res, next) {
 
     const token = req.cookies.token;
 
+    console.log("COOKIE:", req.cookies);
+    console.log("TOKEN:", token);
+
     if (!token) {
         return res.status(401).json({
             message: "Unauthorized",
